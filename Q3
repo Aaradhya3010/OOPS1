@@ -1,0 +1,92 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// (i) Fibonacci series
+void fibonacci(int n) {
+    int a = 0, b = 1, c;
+    cout << "Fibonacci Series: ";
+    for (int i = 0; i < n; i++) {
+        cout << a << " ";
+        c = a + b;
+        a = b;
+        b = c;
+    }
+}
+
+// (ii) Armstrong number
+bool isArmstrong(int n) {
+    int temp = n, sum = 0, d;
+    while (temp) {
+        d = temp % 10;
+        sum += pow(d, 3);
+        temp /= 10;
+    }
+    return sum == n;
+}
+
+// (iii) Palindrome
+bool isPalindrome(int n) {
+    int rev = 0, temp = n;
+    while (temp) {
+        rev = rev * 10 + temp % 10;
+        temp /= 10;
+    }
+    return rev == n;
+}
+
+// (iv) Prime number
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return false;
+    return true;
+}
+
+// (v) Calculate power
+int power(int base, int exp) {
+    return pow(base, exp);
+}
+
+// (vi) Factorial
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++)
+        fact *= i;
+    return fact;
+}
+
+// (vii) Maximum of two numbers
+int maxNum(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    int choice;
+    cout << "Choose option:\n1.Fibonacci\n2.Armstrong\n3.Palindrome\n4.Prime\n5.Power\n6.Factorial\n7.Max\n";
+    cin >> choice;
+
+    if (choice == 1) {
+        int n; cout << "Enter limit: "; cin >> n; fibonacci(n);
+    } else if (choice == 2) {
+        int n; cout << "Enter number: "; cin >> n;
+        cout << (isArmstrong(n) ? "Armstrong" : "Not Armstrong");
+    } else if (choice == 3) {
+        int n; cout << "Enter number: "; cin >> n;
+        cout << (isPalindrome(n) ? "Palindrome" : "Not Palindrome");
+    } else if (choice == 4) {
+        int n; cout << "Enter number: "; cin >> n;
+        cout << (isPrime(n) ? "Prime" : "Not Prime");
+    } else if (choice == 5) {
+        int a, b; cout << "Enter base and exponent: "; cin >> a >> b;
+        cout << "Power = " << power(a, b);
+    } else if (choice == 6) {
+        int n; cout << "Enter number: "; cin >> n;
+        cout << "Factorial = " << factorial(n);
+    } else if (choice == 7) {
+        int a, b; cout << "Enter two numbers: "; cin >> a >> b;
+        cout << "Max = " << maxNum(a, b);
+    }
+    return 0;
+}
