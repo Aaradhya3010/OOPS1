@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int choice;
+    cout << "1. Area of Circle\n2. Circumference of Circle\n3. Area of Triangle\n4. Your Choice\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1: {
+            float r; cout << "Enter radius: "; cin >> r;
+            cout << "Area of Circle = " << M_PI * r * r;
+            break;
+        }
+        case 2: {
+            float r; cout << "Enter radius: "; cin >> r;
+            cout << "Circumference = " << 2 * M_PI * r;
+            break;
+        }
+        case 3: {
+            float b, h; cout << "Enter base and height: "; cin >> b >> h;
+            cout << "Area of Triangle = " << 0.5 * b * h;
+            break;
+        }
+        case 4:
+            cout << "It's your choice!";
+            break;
+        default:
+            cout << "Invalid input!";
+    }
+    return 0;
+}
